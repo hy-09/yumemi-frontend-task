@@ -9,3 +9,15 @@ export async function fetchPrefectures() {
   );
   return res.data.result;
 }
+
+export async function fetchPopulationComposition(
+  params: FetchPopulationComposition["Params"]
+) {
+  const res = await axiosClient.get<FetchPopulationComposition["Response"]>(
+    "/api/v1/population/composition/perYear",
+    {
+      params,
+    }
+  );
+  return res.data.result;
+}
