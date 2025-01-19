@@ -1,7 +1,7 @@
+import { fetchPopulationComposition } from "@/api";
+import { populationCompositionKeys } from "@/query-keys";
+import { FetchPopulationComposition } from "@/types/population";
 import { useQuery } from "@tanstack/react-query";
-import { populationCompositionKeys } from "../query-keys";
-import { fetchPopulationComposition } from "../api";
-import { FetchPopulationComposition } from "../types/population";
 
 export default function usePopulationComposition(
   params: FetchPopulationComposition["Params"] | undefined

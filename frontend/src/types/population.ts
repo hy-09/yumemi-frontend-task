@@ -1,5 +1,5 @@
-import { Response } from "./general";
-import { PrefCode } from "./prefecture";
+import { Response } from "@/types/general";
+import { PrefCode } from "@/types/prefecture";
 
 export type PopulationComposition = {
   boundaryYear: number;
