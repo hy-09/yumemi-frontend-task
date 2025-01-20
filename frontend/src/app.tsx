@@ -25,24 +25,45 @@ import {
 
 function App() {
   return (
-    <div className="bg-gray-50 w-full h-full min-h-screen py-4">
-      <div className="container mx-auto max-w-5xl">
-        <Card>
-          <CardHeader className="text-xl">
-            <h1>都道府県別　総人口推移グラフ</h1>
-          </CardHeader>
-          <CardContent>
-            <ErrorBoundary
-              FallbackComponent={() => <p>予期しないエラーが発生しました。</p>}
-            >
-              <Suspense fallback={<SuspenseFallback />}>
-                <Index />
-              </Suspense>
-            </ErrorBoundary>
-          </CardContent>
-        </Card>
+    <>
+      <style>
+        {`
+        @keyframes gradientMove {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      `}
+      </style>
+      <div className="bg-gray-100 w-full h-full min-h-screen py-4">
+        <div className="container mx-auto max-w-5xl">
+          <Card>
+            <CardHeader className="text-xl">
+              <h1
+                className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent"
+                style={{
+                  backgroundSize: "200% 200%",
+                  animation: "gradientMove 4s infinite alternate",
+                }}
+              >
+                都道府県別　総人口推移グラフ
+              </h1>
+            </CardHeader>
+            <CardContent>
+              <ErrorBoundary
+                FallbackComponent={() => (
+                  <p>予期しないエラーが発生しました。</p>
+                )}
+              >
+                <Suspense fallback={<SuspenseFallback />}>
+                  <Index />
+                </Suspense>
+              </ErrorBoundary>
+            </CardContent>
+          </Card>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -138,11 +159,21 @@ const LabeledCheckbox = ({
   };
 
   return (
-    <div className="inline-block space-x-1">
+    <div className="flex align-middle space-x-1">
       <input
         type="checkbox"
         id={id}
-        className="cursor-pointer"
+        className="w-5 h-5 rounded-md appearance-none 
+                   border border-gray-400 
+                   transition-all duration-300 ease-in-out
+                   bg-gray-300
+                   checked:bg-gradient-to-r checked:from-pink-500 checked:to-yellow-500
+                   checked:border-none checked:shadow-lg checked:scale-110
+                   checked:animate-gradientMove cursor-pointer"
+        style={{
+          backgroundSize: "200% 200%",
+          animation: "gradientMove 4s infinite alternate",
+        }}
         onChange={handleChange}
       />
       <label htmlFor={id} className="cursor-pointer">
