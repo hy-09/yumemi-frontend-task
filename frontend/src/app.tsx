@@ -46,7 +46,7 @@ function App() {
                   animation: "gradientMove 4s infinite alternate",
                 }}
               >
-                都道府県別　総人口推移グラフ
+                都道府県別　人口推移グラフ
               </h1>
             </CardHeader>
             <CardContent>
