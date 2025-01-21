@@ -13,7 +13,7 @@ const LabelSelect = memo(
     return (
       <div className="text-end">
         <select
-          className="border rounded-sm cursor-pointer"
+          className="p-1 border rounded-sm cursor-pointer"
           onChange={(e) =>
             setSelectedLabel(e.target.value as PopulationCompositionLabel)
           }

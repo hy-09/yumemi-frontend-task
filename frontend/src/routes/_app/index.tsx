@@ -13,9 +13,9 @@ const App = () => {
     <div className="bg-gray-100 w-full h-full min-h-screen py-4">
       <div className="container mx-auto max-w-5xl">
         <Card>
-          <CardHeader className="text-xl">
+          <CardHeader>
             <h1
-              className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent"
+              className="text-xl sm:text-3xl font-bold bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent"
               style={{
                 backgroundSize: "200% 200%",
                 animation: "gradientMove 4s infinite alternate",
@@ -48,7 +48,7 @@ const Index = () => {
     useState<PopulationCompositionLabel>("総人口");
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-6 sm:space-y-12">
       <PrefectureCheckBoxes setSelectedPrefectures={setSelectedPrefectures} />
       <LabelSelect setSelectedLabel={setSelectedLabel} />
       <Chart
