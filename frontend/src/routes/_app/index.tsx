@@ -10,7 +10,7 @@ import { ErrorBoundary } from "react-error-boundary";
 
 const App = () => {
   return (
-    <div className="bg-gray-100 w-full h-full min-h-screen py-4">
+    <main className="bg-gray-100 w-full h-full min-h-screen py-4">
       <div className="container mx-auto max-w-5xl">
         <Card>
           <CardHeader>
@@ -35,7 +35,7 @@ const App = () => {
           </CardContent>
         </Card>
       </div>
-    </div>
+    </main>
   );
 };
 
@@ -49,7 +49,10 @@ const Index = () => {
 
   return (
     <div className="space-y-6 sm:space-y-12">
-      <PrefectureCheckBoxes setSelectedPrefectures={setSelectedPrefectures} />
+      <PrefectureCheckBoxes
+        selectedPrefectures={selectedPrefectures}
+        setSelectedPrefectures={setSelectedPrefectures}
+      />
       <LabelSelect setSelectedLabel={setSelectedLabel} />
       <Chart
         selectedPrefectures={selectedPrefectures}
