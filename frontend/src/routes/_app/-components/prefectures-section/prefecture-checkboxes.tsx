@@ -39,4 +39,6 @@ const PrefectureCheckBoxes = memo(
   }
 );
 
+PrefectureCheckBoxes.displayName = "PrefectureCheckBoxes";
+
 export default PrefectureCheckBoxes;

@@ -51,4 +51,6 @@ const LabeledCheckbox = memo(
   }
 );
 
+LabeledCheckbox.displayName = "LabeledCheckbox";
+
 export default LabeledCheckbox;

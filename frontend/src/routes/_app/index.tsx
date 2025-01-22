@@ -4,7 +4,6 @@ import usePrefectures from "@/hooks/use-prefectures";
 import ChartSection from "@/routes/_app/-components/chart-section";
 import LabelSelectSection from "@/routes/_app/-components/label-select-section";
 import PrefecturesSection from "@/routes/_app/-components/prefectures-section";
-import PrefectureCheckBoxes from "@/routes/_app/-components/prefectures-section/prefecture-checkboxes";
 import { PopulationCompositionLabel } from "@/types/population";
 import { Prefecture } from "@/types/prefecture";
 import { Suspense, useState } from "react";
@@ -23,7 +22,7 @@ const App = () => {
                 animation: "gradientMove 4s infinite alternate",
               }}
             >
-              都道府県別　人口推移グラフ
+              {"都道府県別　人口推移グラフ"}
             </h1>
           </CardHeader>
           <CardContent>

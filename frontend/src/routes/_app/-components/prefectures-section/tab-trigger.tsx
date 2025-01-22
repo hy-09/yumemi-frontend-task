@@ -27,4 +27,6 @@ const TabTrigger = memo(
   }
 );
 
+TabTrigger.displayName = "TabTrigger";
+
 export default TabTrigger;

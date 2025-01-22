@@ -49,4 +49,6 @@ const PrefecturePulldown = memo(
   }
 );
 
+PrefecturePulldown.displayName = "PrefecturePulldown";
+
 export default PrefecturePulldown;
