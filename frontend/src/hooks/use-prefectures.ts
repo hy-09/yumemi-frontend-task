@@ -4,7 +4,7 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 
 export default function usePrefectures() {
   return useSuspenseQuery({
-    queryKey: prefectureKeys.all,
+    queryKey: prefectureKeys.lists(),
     queryFn: () => fetchPrefectures(),
     staleTime: Infinity,
     gcTime: 1000 * 60 * 60 * 24,
