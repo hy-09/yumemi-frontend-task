@@ -21,7 +21,7 @@ const LabeledCheckbox = ({
   };
 
   return (
-    <div className="flex align-middle space-x-1">
+    <div className="flex items-center space-x-1">
       <input
         type="checkbox"
         id={id}
