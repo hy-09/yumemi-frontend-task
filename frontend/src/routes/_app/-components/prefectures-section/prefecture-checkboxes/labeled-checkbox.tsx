@@ -4,23 +4,23 @@ import { memo } from "react";
 const LabeledCheckbox = memo(
   ({
     prefecture,
-    setSelectedPrefectures,
+    setSelectedPrefCodes,
     checked,
   }: {
     prefecture: Prefecture;
-    setSelectedPrefectures: React.Dispatch<React.SetStateAction<Prefecture[]>>;
+    setSelectedPrefCodes: React.Dispatch<
+      React.SetStateAction<Prefecture["prefCode"][]>
+    >;
     checked: boolean;
   }) => {
     const { prefCode } = prefecture;
     const id = `prefecture-${prefCode}`;
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       if (event.target.checked) {
-        setSelectedPrefectures((data) => [...data, prefecture]);
+        setSelectedPrefCodes((prev) => [...prev, prefecture.prefCode]);
       } else {
-        setSelectedPrefectures((data) =>
-          data.filter((p) => p.prefCode !== prefCode)
-        );
+        setSelectedPrefCodes((prev) => prev.filter((p) => p !== prefCode));
       }
     };
 
@@ -40,7 +40,7 @@ const LabeledCheckbox = memo(
             backgroundSize: "200% 200%",
             animation: "gradientMove 4s infinite alternate",
           }}
-          onChange={handleChange}
+          onChange={onChange}
           checked={checked}
         />
         <label htmlFor={id} className="cursor-pointer">

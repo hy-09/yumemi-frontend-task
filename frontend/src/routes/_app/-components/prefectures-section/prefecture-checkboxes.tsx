@@ -1,29 +1,26 @@
 import { Button } from "@/components/button";
 import usePrefectures from "@/hooks/use-prefectures";
-import LabeledCheckbox from "@/routes/_app/-components/atoms/labeled-checkbox";
+import LabeledCheckbox from "@/routes/_app/-components/prefectures-section/prefecture-checkboxes/labeled-checkbox";
 import { Prefecture } from "@/types/prefecture";
 import { memo } from "react";
 
 const PrefectureCheckBoxes = memo(
   ({
-    selectedPrefectures,
-    setSelectedPrefectures,
+    selectedPrefCodes,
+    setSelectedPrefCodes,
   }: {
-    selectedPrefectures: Prefecture[];
-    setSelectedPrefectures: React.Dispatch<React.SetStateAction<Prefecture[]>>;
+    selectedPrefCodes: Prefecture["prefCode"][];
+    setSelectedPrefCodes: React.Dispatch<
+      React.SetStateAction<Prefecture["prefCode"][]>
+    >;
   }) => {
     const { data: prefectures } = usePrefectures();
-    const selectedPrefCodes = selectedPrefectures.map((p) => p.prefCode);
-    const clearSelectedPrefectures = () => setSelectedPrefectures([]);
+    const clearSelectedPrefCodes = () => setSelectedPrefCodes([]);
 
     return (
       <div className="space-y-4">
         <div className="text-end">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={clearSelectedPrefectures}
-          >
+          <Button variant="outline" size="sm" onClick={clearSelectedPrefCodes}>
             選択解除
           </Button>
         </div>
@@ -31,7 +28,7 @@ const PrefectureCheckBoxes = memo(
           {prefectures.map((prefecture) => (
             <LabeledCheckbox
               prefecture={prefecture}
-              setSelectedPrefectures={setSelectedPrefectures}
+              setSelectedPrefCodes={setSelectedPrefCodes}
               key={prefecture.prefCode}
               checked={selectedPrefCodes.includes(prefecture.prefCode)}
             />

@@ -18,10 +18,12 @@ import {
   YAxis,
 } from "recharts";
 
-const Chart = ({
+const ChartSection = ({
+  selectedPrefCodes,
   selectedPrefectures,
   selectedLabel,
 }: {
+  selectedPrefCodes: Prefecture["prefCode"][];
   selectedPrefectures: Prefecture[];
   selectedLabel: PopulationCompositionLabel;
 }) => {
@@ -33,7 +35,6 @@ const Chart = ({
     (Prefecture & { data: PopulationComposition })[]
   >([]);
 
-  const selectedPrefCodes = selectedPrefectures.map((p) => p.prefCode);
   const fetchedPrefCodes = populationCompositions.map((c) => c.prefCode);
 
   useEffect(() => {
@@ -118,4 +119,4 @@ const Chart = ({
   );
 };
 
-export default Chart;
+export default ChartSection;

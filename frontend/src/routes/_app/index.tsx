@@ -1,8 +1,10 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import Chart from "@/routes/_app/-components/organisms/chart";
-import LabelSelect from "@/routes/_app/-components/organisms/label-select";
-import PrefectureCheckBoxes from "@/routes/_app/-components/organisms/prefecture-checkboxes";
+import usePrefectures from "@/hooks/use-prefectures";
+import ChartSection from "@/routes/_app/-components/chart-section";
+import LabelSelectSection from "@/routes/_app/-components/label-select-section";
+import PrefecturesSection from "@/routes/_app/-components/prefectures-section";
+import PrefectureCheckBoxes from "@/routes/_app/-components/prefectures-section/prefecture-checkboxes";
 import { PopulationCompositionLabel } from "@/types/population";
 import { Prefecture } from "@/types/prefecture";
 import { Suspense, useState } from "react";
@@ -40,8 +42,12 @@ const App = () => {
 };
 
 const Index = () => {
-  const [selectedPrefectures, setSelectedPrefectures] = useState<Prefecture[]>(
-    []
+  const { data: prefectures } = usePrefectures();
+  const [selectedPrefCodes, setSelectedPrefCodes] = useState<
+    Prefecture["prefCode"][]
+  >([]);
+  const selectedPrefectures = prefectures.filter((prefecture) =>
+    selectedPrefCodes.includes(prefecture.prefCode)
   );
 
   const [selectedLabel, setSelectedLabel] =
@@ -49,12 +55,13 @@ const Index = () => {
 
   return (
     <div className="space-y-6 sm:space-y-12">
-      <PrefectureCheckBoxes
-        selectedPrefectures={selectedPrefectures}
-        setSelectedPrefectures={setSelectedPrefectures}
+      <PrefecturesSection
+        selectedPrefCodes={selectedPrefCodes}
+        setSelectedPrefCodes={setSelectedPrefCodes}
       />
-      <LabelSelect setSelectedLabel={setSelectedLabel} />
-      <Chart
+      <LabelSelectSection setSelectedLabel={setSelectedLabel} />
+      <ChartSection
+        selectedPrefCodes={selectedPrefCodes}
         selectedPrefectures={selectedPrefectures}
         selectedLabel={selectedLabel}
       />

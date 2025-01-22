@@ -1,7 +1,7 @@
 import { POPULATION_COMPOSITION__AGE_LABELS } from "@/consts/population-composition";
 import { PopulationCompositionLabel } from "@/types/population";
 
-const LabelSelect = ({
+const LabelSelectSection = ({
   setSelectedLabel,
 }: {
   setSelectedLabel: React.Dispatch<
@@ -24,4 +24,4 @@ const LabelSelect = ({
   );
 };
 
-export default LabelSelect;
+export default LabelSelectSection;
