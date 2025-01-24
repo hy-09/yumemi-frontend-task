@@ -1,4 +1,4 @@
-import { Button } from "@/components/button";
+import { Button } from "@/components/ui/button";
 import usePrefectures from "@/hooks/use-prefectures";
 import LabeledCheckbox from "@/routes/_app/-components/prefectures-section/prefecture-checkboxes/labeled-checkbox";
 import { Prefecture } from "@/types/prefecture";
