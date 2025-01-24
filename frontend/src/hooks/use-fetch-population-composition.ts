@@ -1,4 +1,4 @@
-import { fetchPopulationComposition } from "@/api";
+import { fetchPopulationComposition } from "@/backend/api";
 import { useMutation } from "@tanstack/react-query";
 
 export default function useFetchPopulationComposition() {

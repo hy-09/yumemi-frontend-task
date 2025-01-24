@@ -1,4 +1,4 @@
-import { fetchPrefectures } from "@/api";
+import { fetchPrefectures } from "@/backend/api";
 import { prefectureKeys } from "@/query-keys";
 import { useSuspenseQuery } from "@tanstack/react-query";
 
