@@ -83,7 +83,7 @@ const ChartSection = ({
   const lineColors = generateLineColors(selectedPrefectures.length);
 
   return (
-    <div className="w-full aspect-w-16 aspect-h-9 min-h-80">
+    <div id="chart" className="w-full aspect-w-16 aspect-h-9 min-h-80">
       <ResponsiveContainer>
         <LineChart data={chartData}>
           <CartesianGrid strokeDasharray="3 3" />
