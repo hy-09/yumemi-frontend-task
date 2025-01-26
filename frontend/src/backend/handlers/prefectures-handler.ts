@@ -10,7 +10,7 @@ const mockResponse: Response<Prefecture[]> = {
 };
 
 export const prefecturesHandler = http.get(
-  `${import.meta.env.VITE_API_ENDPOINT}/api/v1/prefectures`,
+  `${import.meta.env.VITE_API_URL}/api/v1/prefectures`,
   () => {
     return HttpResponse.json(mockResponse, { status: 200 });
   }

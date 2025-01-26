@@ -21,7 +21,7 @@ const mockResponse: FetchPopulationComposition["Response"] = {
 };
 
 export const populationCompositionHandler = http.get(
-  `${import.meta.env.VITE_API_ENDPOINT}/api/v1/population/composition/perYear`,
+  `${import.meta.env.VITE_API_URL}/api/v1/population/composition/perYear`,
   (info) => {
     if (!info.request.headers.get("X-API-KEY"))
       return HttpResponse.json({ message: "Unauthorized" }, { status: 401 });
