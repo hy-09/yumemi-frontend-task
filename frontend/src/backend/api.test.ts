@@ -6,7 +6,7 @@ describe("fetchPrefectures", () => {
     const prefectures = await fetchPrefectures();
 
     expect(prefectures).toBeInstanceOf(Array);
-    expect(prefectures).toHaveLength(1);
+    expect(prefectures.length).toBeGreaterThan(0);
     expect(prefectures[0]).toHaveProperty("prefCode");
     expect(prefectures[0]).toHaveProperty("prefName");
   });

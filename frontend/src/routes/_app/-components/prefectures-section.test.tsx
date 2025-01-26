@@ -1,7 +1,7 @@
 import { renderWithProviders } from "@/main-test";
 import PrefecturesSection from "@/routes/_app/-components/prefectures-section";
 import { Prefecture } from "@/types/prefecture";
-import { fireEvent, screen } from "@testing-library/react";
+import { fireEvent, screen, within } from "@testing-library/react";
 import { useState } from "react";
 import { describe, expect, test } from "vitest";
 
@@ -28,8 +28,11 @@ describe("PrefecturesSection", () => {
   test("タブを切り替えると表示内容が変わる", async () => {
     renderWithProviders(<Wrapper />);
 
+    const container = document.getElementById("prefectures")!;
+
     fireEvent.click(screen.getByText("チェックボックス"));
-    expect(screen.queryByRole("checkbox")).toBeInTheDocument();
+    const checkbox = within(container).getAllByRole("checkbox")[0];
+    expect(checkbox).toBeInTheDocument();
 
     fireEvent.click(screen.getByText("プルダウン"));
     expect(screen.getByRole("combobox")).toBeInTheDocument();

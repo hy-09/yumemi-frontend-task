@@ -34,7 +34,10 @@ const PrefecturesSection = ({
           />
         ))}
       </ul>
-      <div className="mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+      <div
+        id="prefectures"
+        className="mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      >
         {selectedTab === "checkbox" && (
           <PrefectureCheckBoxes
             selectedPrefCodes={selectedPrefCodes}
