@@ -57,4 +57,18 @@ docker compose exec frontend sh
 
 ### アプリ画面URL
 http://localhost:5173/
+<br>
+<br>
+<br>
+
+## 各コマンド
+リンター実行
+```
+npm run lint
+```
+
+テスト実行
+```
+npm run test
+```
 
